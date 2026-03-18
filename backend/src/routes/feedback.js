@@ -9,11 +9,13 @@ router.get("/", async (req, res) => {
   try {
     const db = getDB();
     const { sort } = req.query;
-    const sortOrder = sort === "asc" ? 1 : -1;
+    let sortQuery = { createdAt: -1 };
+    if (sort === "asc") sortQuery = { rating: 1 };
+    if (sort === "desc") sortQuery = { rating: -1 };
     const feedback = await db
       .collection("feedback")
       .find()
-      .sort({ rating: sortOrder })
+      .sort(sortQuery)
       .toArray();
     res.json(feedback);
   } catch (err) {
@@ -26,11 +28,13 @@ router.get("/project/:projectId", async (req, res) => {
   try {
     const db = getDB();
     const { sort } = req.query;
-    const sortOrder = sort === "asc" ? 1 : -1;
+    let sortQuery = { createdAt: -1 };
+    if (sort === "asc") sortQuery = { rating: 1 };
+    if (sort === "desc") sortQuery = { rating: -1 };
     const feedback = await db
       .collection("feedback")
       .find({ projectId: req.params.projectId })
-      .sort({ rating: sortOrder })
+      .sort(sortQuery)
       .toArray();
     res.json(feedback);
   } catch (err) {

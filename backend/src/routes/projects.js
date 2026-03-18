@@ -13,7 +13,11 @@ router.get("/", async (req, res) => {
     if (techStack) query.techStack = { $in: [techStack] };
     if (category) query.category = category;
     if (date) query.createdAt = { $gte: new Date(date) };
-    const projects = await db.collection("projects").find(query).toArray();
+    const projects = await db
+      .collection("projects")
+      .find(query)
+      .sort({ createdAt: -1 })
+      .toArray();
     res.json(projects);
   } catch (err) {
     res.status(500).json({ error: err.message });

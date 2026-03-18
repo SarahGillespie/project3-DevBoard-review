@@ -1,0 +1,15 @@
+.bookmark-list {
+  max-width: 700px;
+}
+
+.bookmark-list h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e1e2f;
+  margin-bottom: 16px;
+}
+
+.bookmark-empty {
+  color: #666;
+  font-size: 14px;
+}

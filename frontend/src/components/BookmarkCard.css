@@ -1,0 +1,111 @@
+.bookmark-card {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.bookmark-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.bookmark-project {
+  font-weight: 600;
+  font-size: 14px;
+  color: #4f46e5;
+}
+
+.bookmark-user {
+  font-size: 13px;
+  color: #666;
+}
+
+.bookmark-note {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.bookmark-date {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.bookmark-edit {
+  margin-bottom: 10px;
+}
+
+.bookmark-edit textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  height: 70px;
+  resize: vertical;
+  margin-bottom: 8px;
+}
+
+.bookmark-edit textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.bookmark-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bookmark-edit-actions button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bookmark-edit-actions button:first-child {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.bookmark-edit-actions button:last-child {
+  background-color: #e2e8f0;
+  color: #333;
+}
+
+.bookmark-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bookmark-card-actions button {
+  padding: 5px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bookmark-card-actions button:first-child {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.bookmark-card-actions button:last-child {
+  background-color: #ef4444;
+  color: white;
+}
+
+.bookmark-card-actions button:hover {
+  opacity: 0.9;
+}

@@ -152,9 +152,7 @@ function App() {
                   : ""
             }
             onSave={handleFeedbackSave}
-            onCancel={() =>
-              setView(selectedProject ? "detail" : "feedback")
-            }
+            onCancel={() => setView(selectedProject ? "detail" : "feedback")}
           />
         )}
         {view === "bookmarks" && <BookmarkList />}

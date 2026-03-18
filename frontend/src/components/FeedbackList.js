@@ -12,6 +12,7 @@ function FeedbackList({ projectId, onEdit }) {
 
   useEffect(() => {
     fetchFeedback();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectId, sortOrder]);
 
   function fetchFeedback() {
@@ -57,7 +58,8 @@ function FeedbackList({ projectId, onEdit }) {
             <div className="feedback-item-header">
               <span className="feedback-user">{item.userName}</span>
               <span className="feedback-rating">
-                {"★".repeat(item.rating)}{"☆".repeat(5 - item.rating)}
+                {"★".repeat(item.rating)}
+                {"☆".repeat(5 - item.rating)}
               </span>
             </div>
             <p className="feedback-comment">{item.comment}</p>

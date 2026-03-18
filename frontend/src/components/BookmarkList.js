@@ -11,6 +11,7 @@ function BookmarkList({ userName }) {
 
   useEffect(() => {
     fetchBookmarks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName]);
 
   function fetchBookmarks() {

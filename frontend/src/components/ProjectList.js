@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import ProjectCard from "./ProjectCard";
 import ProjectFilter from "./ProjectFilter";
 import "./ProjectList.css";
@@ -12,6 +13,7 @@ function ProjectList({ onView, onEdit }) {
 
   useEffect(() => {
     fetchProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   function fetchProjects() {
@@ -62,5 +64,10 @@ function ProjectList({ onView, onEdit }) {
     </div>
   );
 }
+
+ProjectList.propTypes = {
+  onView: PropTypes.func,
+  onEdit: PropTypes.func,
+};
 
 export default ProjectList;

@@ -4,7 +4,9 @@
   "description": "DevBoard backend API",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
   },
   "author": "Preshit Pimple",
   "license": "MIT",
@@ -12,5 +14,9 @@
     "dotenv": "^17.3.1",
     "express": "^4.18.2",
     "mongodb": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "prettier": "^3.8.1"
   }
 }

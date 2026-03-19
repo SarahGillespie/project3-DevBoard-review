@@ -7,6 +7,7 @@ const BACKEND_URL = "http://localhost:5000";
 
 function FeedbackList({ projectId, onEdit }) {
   const [feedbackItems, setFeedbackItems] = useState([]);
+  const [projectTitles, setProjectTitles] = useState({});
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("recent");
 
@@ -31,17 +32,38 @@ function FeedbackList({ projectId, onEdit }) {
       .then((res) => res.json())
       .then((data) => {
         if (sortOrder === "recent") {
-          data.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-          );
+          data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         }
         setFeedbackItems(data);
+        fetchProjectTitles(data);
         setLoading(false);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
       });
+  }
+
+  function fetchProjectTitles(items) {
+    const uniqueProjectIds = [...new Set(items.map((item) => item.projectId))];
+    uniqueProjectIds.forEach((pid) => {
+      if (pid && !projectTitles[pid]) {
+        fetch(`${BACKEND_URL}/api/projects/${pid}`)
+          .then((res) => res.json())
+          .then((project) => {
+            setProjectTitles((prev) => ({
+              ...prev,
+              [pid]: project.title || "Unknown Project",
+            }));
+          })
+          .catch(() => {
+            setProjectTitles((prev) => ({
+              ...prev,
+              [pid]: "Unknown Project",
+            }));
+          });
+      }
+    });
   }
 
   function handleDelete(id) {
@@ -74,6 +96,11 @@ function FeedbackList({ projectId, onEdit }) {
                 {"☆".repeat(5 - item.rating)}
               </span>
             </div>
+            {!projectId && (
+              <p className="feedback-project">
+                Project: {projectTitles[item.projectId] || "Loading..."}
+              </p>
+            )}
             <p className="feedback-comment">{item.comment}</p>
             <p className="feedback-date">
               {new Date(item.createdAt).toLocaleDateString()}

@@ -8,7 +8,11 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const db = getDB();
-    const bookmarks = await db.collection("bookmarks").find().toArray();
+    const bookmarks = await db
+      .collection("bookmarks")
+      .find()
+      .sort({ createdAt: -1 })
+      .toArray();
     res.json(bookmarks);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -22,6 +26,7 @@ router.get("/user/:userName", async (req, res) => {
     const bookmarks = await db
       .collection("bookmarks")
       .find({ userName: req.params.userName })
+      .sort({ createdAt: -1 })
       .toArray();
     res.json(bookmarks);
   } catch (err) {

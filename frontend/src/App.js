@@ -118,6 +118,9 @@ function App() {
                   onClick={() => {
                     logout();
                     setShowDropdown(false);
+                    setView("list");
+                    setSelectedProject(null);
+                    setSelectedFeedback(null);
                   }}
                 >
                   Logout

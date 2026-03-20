@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./StatsPanel.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function StatsPanel() {
   const [stats, setStats] = useState(null);

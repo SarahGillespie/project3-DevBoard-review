@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./ProjectForm.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function ProjectForm({ project, onSave, onCancel }) {
   const [title, setTitle] = useState(project ? project.title : "");

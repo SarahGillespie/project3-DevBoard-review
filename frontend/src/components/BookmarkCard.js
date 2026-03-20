@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./BookmarkCard.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function BookmarkCard({ bookmark, onEdit, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);

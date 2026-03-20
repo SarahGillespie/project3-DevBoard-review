@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useUser } from "../context/UserContext";
 import "./Login.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function Login({ onSwitchToRegister }) {
   const [username, setUsername] = useState("");

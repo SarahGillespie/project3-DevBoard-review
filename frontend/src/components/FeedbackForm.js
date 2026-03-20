@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./FeedbackForm.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function FeedbackForm({ feedback, projectId, onSave, onCancel }) {
   const [userName, setUserName] = useState(feedback ? feedback.userName : "");

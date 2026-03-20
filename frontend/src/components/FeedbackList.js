@@ -4,7 +4,8 @@ import RatingSort from "./RatingSort";
 import Pagination from "./Pagination";
 import "./FeedbackList.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 const LIMIT = 10;
 
 function FeedbackList({ projectId, onEdit }) {
